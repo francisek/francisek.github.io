@@ -23,6 +23,7 @@ nginx loads additionnal configuration with extension `.conf` from the `/etc/ngin
 We will create two files in this directory :
 
 - `php-upstream.conf` :
+    
     ```
     upstream php-7.0 {
       server unix:/var/run/php-fpm-7.0.socket; 
@@ -42,6 +43,7 @@ We will create two files in this directory :
       "~^php(?<ver>\d+\.\d+)\.(.*)" $ver;
      }
     ```
+    
     - We use the map directive to define the variable $php_version from the $http_host variable. It will be evaluated on demand.
     - On the second line we say that the default value for the $php_version will be `7.1`
     - On the third line, we say that to deduce the value of $php_version from $http_host, we use a regualr expression.
@@ -49,6 +51,7 @@ We will create two files in this directory :
     The version number will be cach as variable $ver and assigned to $php_version.
     
 Then we will create a block (a virtual host in nginx) for our domain. This file will be in the directory `/etc/nginx/sites-available` and simlinked into `/etc/nginx/sites-enabled` under the name `example.com`
+    
     ```
     server {
         listen 80;
@@ -63,6 +66,7 @@ Then we will create a block (a virtual host in nginx) for our domain. This file 
         }
     }
     ```
+    
     We tell nginx to listen on port 80 for the domain `example.com` and its subdomains.
     The served page are located on the server in the `/var/www` directory.
     The default index file used when none is specified is `index.php`.
