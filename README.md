@@ -9,4 +9,4 @@ This is my own knowledge base index.
         - [Systemd unit template](linux/systemd/template-unit-file.md)
     
     - nginx
-        - [Handle Php version with subdomains](linux/nginx/php-version-per-subdomain.md)
+        - [Handle Php version with subdomains](nginx/php-version-per-subdomain.md)
