@@ -52,20 +52,20 @@ We will create two files in this directory :
     The version number will be cach as variable $ver and assigned to $php_version.
     
 Then we will create a block (a virtual host in nginx) for our domain. This file will be in the directory `/etc/nginx/sites-available` and simlinked into `/etc/nginx/sites-enabled` under the name `example.com` :
-    ```
-    server {
-        listen 80;
-        server_name *.example.com;
-        root /var/www;
-        index index.php;
-        location ~ \.php(/.*|)$ {
-            try_files $uri =404;
-            fastcgi_pass php-$php_version;
-            fastcgi_index index.php;
-            include fastcgi.conf;
-        }
+```
+server {
+    listen 80;
+    server_name *.example.com;
+    root /var/www;
+    index index.php;
+    location ~ \.php(/.*|)$ {
+        try_files $uri =404;
+        fastcgi_pass php-$php_version;
+        fastcgi_index index.php;
+        include fastcgi.conf;
     }
-    ```
+}
+```
     
     We tell nginx to listen on port 80 for the domain `example.com` and its subdomains.
     The served page are located on the server in the `/var/www` directory.
