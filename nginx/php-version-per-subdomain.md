@@ -33,6 +33,7 @@ We will create two files in this directory :
       server unix:/var/run/php-fpm-7.1.socket; 
     }
     ```
+    
     This will define a reusable configuration for each php version.
     We just say where to find the socket file.
     
@@ -50,8 +51,7 @@ We will create two files in this directory :
     This regexp will match any url starting with 'php' followed by a numeric value dot a numeric value dot anything.
     The version number will be cach as variable $ver and assigned to $php_version.
     
-Then we will create a block (a virtual host in nginx) for our domain. This file will be in the directory `/etc/nginx/sites-available` and simlinked into `/etc/nginx/sites-enabled` under the name `example.com`
-    
+Then we will create a block (a virtual host in nginx) for our domain. This file will be in the directory `/etc/nginx/sites-available` and simlinked into `/etc/nginx/sites-enabled` under the name `example.com` :
     ```
     server {
         listen 80;
