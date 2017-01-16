@@ -396,11 +396,11 @@ Our current directory structure is too flat :
 
 ```
 .
-??? docker-compose.yml
-??? html
-?�� ??? index.html
-?�� ??? index.php
-??? vhost.conf
+├── docker-compose.yml
+│   └── html
+│       ├── index.html
+│       └──index.php
+└── vhost.conf
 ```
 
 We should make it more readable :
@@ -696,7 +696,7 @@ When there is a lot of environment variables to setup the application, exporting
 You can put their definition in a `.env` file that will be automagically be red by compose.
 
 Let say the compose files are owned by the www-data user with UID 33 and GID 33 :
-```
+```bash
 $ cat <<'ENDENV' > .env
 HOST_USER_UID=33
 HOST_USER_GID=33
